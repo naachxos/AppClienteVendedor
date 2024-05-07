@@ -1,0 +1,57 @@
+/* Estilo base del contenedor del checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+  }
+  
+  /* Estilo del checkbox oculto */
+  .checkbox-container input[type="checkbox"] {
+    display: none;
+  }
+  
+  /* Estilo del contenedor del checkbox y su texto */
+  .checkbox-container label {
+    position: relative;
+    padding-left: 30px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Estilo del pseudo-checkbox */
+  .checkbox-container label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Estilo del pseudo-checkbox marcado */
+  .checkbox-container input[type="checkbox"]:checked + label::before {
+    background-color: #007bff;
+  }
+  
+  /* Estilo del check dentro del pseudo-checkbox */
+  .checkbox-container label::after {
+    content: '\2713';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    font-size: 16px;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Estilo del check visible cuando el pseudo-checkbox está marcado */
+  .checkbox-container input[type="checkbox"]:checked + label::after {
+    opacity: 1;
+  }
+  

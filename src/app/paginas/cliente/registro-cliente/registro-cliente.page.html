@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/login-cliente"></ion-back-button>
+    </ion-buttons>
+    <ion-title>registro-cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">registro-cliente</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <br>
+  <div>
+    <h1 style="text-align: center;">TTApp</h1>
+  </div>
+  <br>
+
+  <ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-input label="nombre" placeholder="Ingresar Nombre Dueño"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="rut" placeholder="Ingresar Rut Dueño"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Password" type="Ingresar Contraseña" value="password"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Password2" type="Repetir Contraseña" value="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Email" type="email" placeholder="xxxxxx@email.com"></ion-input>
+      </ion-item>
+      <br>
+      <div>
+        <div class="checkbox-container">
+        <input type="checkbox" id="terminos" >
+          <label for="terminos">Acepto los términos y condiciones</label>
+          <a routerLink="/politicas">Terminos de la Plataforma</a>
+        </div>
+        </div>
+    </ion-list>
+    <br>
+    <br>
+    <div>
+      <ion-button routerLink="/login-cliente" type="button" expand="block">Crear Cuenta</ion-button>
+    </div>
+  </ion-list>
+</ion-content>

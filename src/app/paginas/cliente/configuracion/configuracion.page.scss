@@ -1,0 +1,61 @@
+/* Estilos generales */
+//////////////////////////////////////Cuerpo////////////////////////////////////////////
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; 
+    color: #333; 
+    margin: 0;
+    padding: 0;
+  }
+  ///////////////////////////////////////////////////////////////////////////////////
+  h1 {
+    text-align: center;
+  }
+  
+  ////////////////////////////////Diseño Boton////////////////////////////////////////
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+    ///////////////////////////////////////////////////////////////////////////////////
+    
+      ///////////////////////////////Diseño Profundidad Botones////////////////////////////////////////////////////
+  #button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444; 
+    color: #fff; 
+    cursor: pointer;
+  }
+    ///////////////////////////////////////////////////////////////////////////////////
+
+  /* Efecto hover */
+  .button:hover  {
+    background-color: #666; 
+    ///////Cambiar a claro cuando se pasa el mouse//////////
+  }
+  ///////////////////////////////////////////////////////////////////////////////////////////
+
+    //////////////////////////////////////QR/////////////////////////////////////////////
+  /* Estilos del contenedor de botones y QR */
+  .buttons-qr-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinear los elementos al principio */
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  
+  .qr-container {
+    margin-top: 20px;
+  }
+  
+  .qr-container img {
+    width: 200px; /* Ajustar el tamaño del código QR según sea necesario */
+    height: auto;
+  }
+    ///////////////////////////////////////////////////////////////////////////////////

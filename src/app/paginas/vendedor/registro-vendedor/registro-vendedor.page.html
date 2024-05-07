@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/login-vendedor"></ion-back-button>
+    </ion-buttons>
+    <ion-title>registro-vendedor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">registro-vendedor</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <br>
+  <div>
+    <h1 style="text-align: center;">TTApp</h1>
+  </div>
+  <br>
+
+  <ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-input label="nombre" placeholder="Ingresar Nombre Dueño"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="rut" placeholder="Ingresar Rut Dueño"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Password" type="Ingresar Contraseña" value="password"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Password2" type="Repetir Contraseña" value="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Email" type="email" placeholder="xxxxxx@email.com"></ion-input>
+      </ion-item>
+
+      <div>
+        <ion-item>
+          <ion-input label="nombreNegocio" placeholder="Ingresar Nombre Negocio"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-input label="rutNegocio" placeholder="Ingresar Rut Negocio"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-input label="tipoNegocio" placeholder="Describe Tu Negocio Brevemente"></ion-input>
+        </ion-item>
+      </div>
+      <br>
+      <div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="terminos" > 
+          <label for="terminos">Acepto los términos y condiciones</label>
+          <a routerLink="/politicas">Terminos de la Plataforma</a>
+        </div>
+      </div>
+    </ion-list>
+    <br>
+    <br>
+    <div>
+      <ion-button routerLink="/login-vendedor" type="button" expand="block">Crear Cuenta</ion-button>
+    </div>
+  </ion-list>
+</ion-content>

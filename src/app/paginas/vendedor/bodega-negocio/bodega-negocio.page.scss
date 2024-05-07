@@ -1,0 +1,86 @@
+/* Estilos generales */
+h1 {
+    text-align: center;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+  }
+  
+  .product-card h2 {
+    margin-top: 0;
+  }
+  
+  .crud-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .crud-btn {
+    background-color: #4CAF50; /* Verde */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+  
+  .crud-btn:hover {
+    background-color: #45a049; /* Verde más oscuro */
+  }
+  
+  .profile-btn {
+    background-color: #00bfff; /* Azul claro */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+  
+  .profile-btn:hover {
+    background-color: #1e90ff; /* Azul claro más oscuro */
+  }
+  
+  .add-product-btn {
+    background-color: #008CBA; /* Azul */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    margin-top: 20px;
+  }
+  
+  .add-product-btn:hover {
+    background-color: #0077a3; /* Azul más oscuro */
+  }
+  

@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/homeCliente"></ion-back-button>
+    </ion-buttons>
+    <ion-title>configuracion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">configuracion</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <h1>Configuraciones</h1>
+<div class="buttons-qr-container">
+  <div class="buttons-container" >
+    <button id="button"*ngFor="let num of [1, 2, 3, 4, 5, 6, 7]" class="button">{{num}}</button>
+  </div>
+  <div class="qr-container">
+    <img src="ruta/a/tu/imagen-qr.png" alt="Código QR">
+  </div>
+</div>
+
+</ion-content>
