@@ -40,22 +40,38 @@ body {
   }
   ///////////////////////////////////////////////////////////////////////////////////////////
 
-    //////////////////////////////////////QR/////////////////////////////////////////////
-  /* Estilos del contenedor de botones y QR */
-  .buttons-qr-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alinear los elementos al principio */
-    flex-wrap: wrap;
-    padding: 20px;
-  }
+    //////////////////////////////////////Carta/////////////////////////////////////////////
   
-  .qr-container {
-    margin-top: 20px;
-  }
-  
-  .qr-container img {
-    width: 200px; /* Ajustar el tamaño del código QR según sea necesario */
-    height: auto;
-  }
+    ion-item {
+      margin-bottom: 15px;
+    }
+
+    .avatar-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px; /* Espacio bajo el avatar */
+    }
+    
+    .avatar-img {
+      width: auto; /* Ancho deseado para la imagen */
+      height: auto; /* Altura deseada para la imagen */
+      object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+      border-radius: 50%; /* Para hacerla redonda */
+    }
+
+    
+
+
+    .botones-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      
+    }
+
+    ion-button{
+      --background: #00bfd8;
+    }
+    
+    
     ///////////////////////////////////////////////////////////////////////////////////

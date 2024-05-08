@@ -1,27 +1,64 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-buttons slot="end">
+    <ion-buttons slot="start">
       <ion-back-button defaultHref="/homeCliente"></ion-back-button>
     </ion-buttons>
-    <ion-title>configuracion</ion-title>
+    
+    <ion-title>
+      Editar Información
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="accederConfiguracion()">
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" >
+<ion-content has-header="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">configuracion</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <h1>Configuraciones</h1>
-<div class="buttons-qr-container">
-  <div class="buttons-container" >
-    <button id="button"*ngFor="let num of [1, 2, 3, 4, 5, 6, 7]" class="button">{{num}}</button>
-  </div>
-  <div class="qr-container">
-    <img src="ruta/a/tu/imagen-qr.png" alt="Código QR">
-  </div>
-</div>
+  <!-- <ion-back-button defaultHref="/homeCliente"></ion-back-button> -->
+
+  <ion-card id="content">
+    <div class="avatar-container">
+      <ion-avatar>
+        <img src="https://avatars.cloudflare.steamstatic.com/cceaf4f1a10b081cb000073cf8c13aa326fd4b29_full.jpg" class="avatar-img"> <!-- Ruta a tu imagen de avatar -->
+      </ion-avatar>
+    </div>
+  
+    <ion-card-content>
+      <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="nombre" [disabled]="!editando"></ion-input>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="nombre" [disabled]="!editando"></ion-input>
+      <ion-label position="floating">Edad</ion-label>
+      <ion-input type="number" [(ngModel)]="edad" [disabled]="!editando"></ion-input>
+      <ion-label position="floating">Numero de telefono</ion-label>
+      <ion-input type="number" [(ngModel)]="edad" [disabled]="!editando"></ion-input>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input type="email" errorText="Correo invalido" [(ngModel)]="correo" ngmodel email [disabled]="!editando"
+></ion-input>
+
+
+      
+    </ion-item>
+    </ion-card-content>
+    <div class="botones-container">
+      <ion-button shape="round" expand="block" (click)="toggleEdicion()">
+        {{ editando ? 'Finalizar Edición' : 'Editar Información' }}
+      </ion-button>
+  
+      <ion-button shape="round" expand="block" (click)="guardarInfo()" [disabled]="!editando">
+        Guardar Cambios
+      </ion-button>
+    </div>
+  </ion-card>
 
 </ion-content>
