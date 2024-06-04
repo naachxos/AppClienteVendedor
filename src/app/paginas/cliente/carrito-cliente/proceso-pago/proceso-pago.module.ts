@@ -4,20 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { ProcesoPagoPageRoutingModule } from './proceso-pago-routing.module';
 
-import { HomePage } from './home.page';
-
-import { HttpClientModule } from '@angular/common/http';
+import { ProcesoPagoPage } from './proceso-pago.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
-    HttpClientModule
+    ProcesoPagoPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [ProcesoPagoPage]
 })
-export class HomePageModule {}
+export class ProcesoPagoPageModule {}

@@ -2,8 +2,8 @@
 //////////////////////////////////////Cuerpo////////////////////////////////////////////
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; 
-    color: #333; 
+    background-color: #f0f0f0;
+    color: #333;
     margin: 0;
     padding: 0;
   }
@@ -11,7 +11,7 @@ body {
   h1 {
     text-align: center;
   }
-  
+
   ////////////////////////////////Diseño Boton////////////////////////////////////////
   .buttons-container {
     display: flex;
@@ -20,58 +20,72 @@ body {
     margin-top: 20px;
   }
     ///////////////////////////////////////////////////////////////////////////////////
-    
+
       ///////////////////////////////Diseño Profundidad Botones////////////////////////////////////////////////////
   #button {
     margin: 10px;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #444; 
-    color: #fff; 
+    background-color: #444;
+    color: #fff;
     cursor: pointer;
   }
     ///////////////////////////////////////////////////////////////////////////////////
 
   /* Efecto hover */
   .button:hover  {
-    background-color: #666; 
+    background-color: #666;
     ///////Cambiar a claro cuando se pasa el mouse//////////
   }
   ///////////////////////////////////////////////////////////////////////////////////////////
 
-    //////////////////////////////////////Carta/////////////////////////////////////////////
-  
-    ion-item {
-      margin-bottom: 15px;
-    }
+    //////////////////////////////////////QR/////////////////////////////////////////////
+  /* Estilos del contenedor de botones y QR */
+  .buttons-qr-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinear los elementos al principio */
+    flex-wrap: wrap;
+    padding: 20px;
+  }
 
-    .avatar-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px; /* Espacio bajo el avatar */
-    }
-    
-    .avatar-img {
-      width: auto; /* Ancho deseado para la imagen */
-      height: auto; /* Altura deseada para la imagen */
-      object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
-      border-radius: 50%; /* Para hacerla redonda */
-    }
+  .qr-container {
+    margin-top: 20px;
+  }
 
-    
-
-
-    .botones-container {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-      
-    }
-
-    ion-button{
-      --background: #00bfd8;
-    }
-    
-    
+  .qr-container img {
+    width: 200px; /* Ajustar el tamaño del código QR según sea necesario */
+    height: auto;
+  }
     ///////////////////////////////////////////////////////////////////////////////////
+    ///
+ ion-content {
+  --ion-background-color: var(--ion-color-light);
+  --ion-color: var(--ion-color-dark);
+}
+
+.dark-mode ion-content {
+  --ion-background-color: var(--ion-color-dark);
+  --ion-color: var(--ion-color-light);
+}
+
+.user-info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.user-info ion-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.user-info h2 {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.user-info p {
+  color: var(--ion-color-medium);
+}

@@ -1,0 +1,35 @@
+.container {
+  padding: 16px;
+}
+
+.selected-products, .purchased-products {
+  margin-bottom: 32px;
+}
+
+ion-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+ion-card:hover {
+  transform: scale(1.05);
+}
+
+ion-button {
+  margin-top: 8px;
+}
+
+@media (max-width: 767px) {
+  ion-card {
+    margin-bottom: 16px;
+  }
+}
+
+.scroll-y {
+  overflow-y: scroll; /* Permitir el desplazamiento */
+  scrollbar-width: none !important; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+}

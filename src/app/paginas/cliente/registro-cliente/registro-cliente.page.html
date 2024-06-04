@@ -3,57 +3,82 @@
     <ion-buttons slot="end">
       <ion-back-button defaultHref="/login-cliente"></ion-back-button>
     </ion-buttons>
-    <ion-title>registro-cliente</ion-title>
+    <ion-title>Registro Cliente</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">registro-cliente</ion-title>
+      <ion-title size="large">Registro Cliente</ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <br>
   <div>
     <h1 style="text-align: center;">TTApp</h1>
   </div>
   <br>
 
-  <ion-list>
+  <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
     <ion-list>
       <ion-item>
-        <ion-input label="nombre" placeholder="Ingresar Nombre Dueño"></ion-input>
-      </ion-item>
-  
-      <ion-item>
-        <ion-input label="rut" placeholder="Ingresar Rut Dueño"></ion-input>
-      </ion-item>
-  
-      <ion-item>
-        <ion-input label="Password" type="Ingresar Contraseña" value="password"></ion-input>
-      </ion-item>
-  
-      <ion-item>
-        <ion-input label="Password2" type="Repetir Contraseña" value="password"></ion-input>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="nombre" placeholder="Ingresar Nombre Cliente" value="Juan Pérez"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input label="Email" type="email" placeholder="xxxxxx@email.com"></ion-input>
+        <ion-label position="stacked">Rut</ion-label>
+        <ion-input formControlName="rut" placeholder="Ingresar Rut Cliente" value="12345678-9"></ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password" placeholder="Ingresar Contraseña" value="123456"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Repetir Contraseña</ion-label>
+        <ion-input type="password" formControlName="password2" placeholder="Repetir Contraseña" value="123456"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="email" formControlName="email" placeholder="xxxxxx@email.com" value="juan@example.com"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Teléfono</ion-label>
+        <ion-input type="tel" formControlName="telefono" placeholder="Ingresar Teléfono" value="123456789"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Dirección</ion-label>
+        <ion-input formControlName="direccion" placeholder="Ingresar Dirección de Envío" value="Calle Principal 123"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Ciudad</ion-label>
+        <ion-input formControlName="ciudad" placeholder="Ingresar Ciudad" value="Santiago"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Código Postal</ion-label>
+        <ion-input formControlName="codigoPostal" placeholder="Ingresar Código Postal" value="12345"></ion-input>
+      </ion-item>
+
       <br>
-      <div>
-        <div class="checkbox-container">
-        <input type="checkbox" id="terminos" >
-          <label for="terminos">Acepto los términos y condiciones</label>
-          <a routerLink="/politicas">Terminos de la Plataforma</a>
-        </div>
-        </div>
+      <div class="checkbox-container">
+        <ion-checkbox formControlName="terminos" id="terminos" checked="true"></ion-checkbox>
+        <label for="terminos">Acepto los términos y condiciones</label>
+        <a routerLink="/politicas">Términos de la Plataforma</a>
+      </div>
     </ion-list>
+
     <br>
     <br>
     <div>
-      <ion-button routerLink="/login-cliente" type="button" expand="block">Crear Cuenta</ion-button>
+      <ion-button type="submit" expand="block" [disabled]="registroForm.valid">Crear Cuenta</ion-button>
     </div>
-  </ion-list>
+  </form>
 </ion-content>

@@ -1,13 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>configuracion</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/homeVendedor"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Configuración</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">configuracion</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item>
+      <ion-label>Modo oscuro</ion-label>
+      <ion-toggle (ionChange)="toggleDarkMode($event)"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <div class="container" style="text-align: center;">
+    <ion-avatar style="align-items: center;">
+      <!-- Datos Cliente -->
+      <img src="#" alt="Avatar">
+    </ion-avatar>
+    <div class="container">
+      <h2>{{ usuario.nombre }}</h2>
+    </div>
+    <h6>Rut: {{ usuario.rut }}</h6>
+  </div>
 </ion-content>
+
+
+
+

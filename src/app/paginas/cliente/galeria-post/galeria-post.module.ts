@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { GaleriaPostPageRoutingModule } from './galeria-post-routing.module';
 
 import { GaleriaPostPage } from './galeria-post.page';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GaleriaPostPageRoutingModule
+    GaleriaPostPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [GaleriaPostPage]
 })

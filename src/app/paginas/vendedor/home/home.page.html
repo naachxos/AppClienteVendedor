@@ -1,4 +1,5 @@
 <ion-header [translucent]="true">
+
   <ion-toolbar style="border-radius: 5%;">
     <ion-title>
       T͓̽e͓̽c͓̽h͓̽Ͳɾąժҽ ͓̽M͓̽a͓̽r͓̽k͓̽↻օղղҽc͓̽է
@@ -6,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <!--------------------------------------------------------------Barra de Despliegue---------------------------------->
-  
+
 <!---------------------------------------------------------------------------------------------------------------->
 
 <!--///////////////////////////Pantalla superior-->
@@ -29,47 +30,30 @@
 
 <!--///////////////////////////Pantalla Inferior-->
 <ion-content [scrollY]="true" style="border:2; border-color: gray;">
-  <div class="ion-content-scroll-host ion-padding" >
-    <h1>Notificaciones:</h1>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Noticias y Novedades:
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-    <h2>Notificacion 1:</h2><h3>ALL 30%</h3>
-    <img
-      alt="rhino standing near grass"
-      src="https://www.techadvisor.com/wp-content/uploads/2024/01/mejores-auriculares.png?resize=1024%2C576&quality=50&strip=all"
-    />
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut purus odio, tincidunt sit amet scelerisque sed, fermentum a dolor. Etiam ac rhoncus turpis, vitae blandit lorem. Integer eleifend lectus quis lacinia feugiat. Integer vehicula, justo vel tincidunt mollis, mauris nisl aliquam mi, ac viverra ex lectus vel ante. Curabitur maximus augue tortor, vitae venenatis felis posuere sed. Nullam gravida ante metus, in condimentum ipsum cursus non. Fusce non finibus odio.
-    </p>
+  <ion-content [scrollY]="true">
+    <ion-list>
+      <ion-item *ngFor="let noticia of noticias">
+        <ion-thumbnail slot="start">
+          <img [src]="noticia.imagen" alt="Imagen del la Noticia">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ noticia.titulo }}</h2>
+          <p>{{ noticia.contenido }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 
-    <h2>Notificacion 2:</h2><h3>50%</h3>
-    <img
-      alt="brown sea turtle in water"
-      src="https://hiraoka.com.pe/media/mageplaza/blog/post/c/o/como_elegir_un_teclado.jpg"
-    />
-    <p>
-      adipiscing elit. Ut purus odio, tincidunt sit amet scelerisque sed, fermentum a dolor. Etiam ac rhoncus turpis, vitae blandit lorem. Integer eleifend lectus quis lacinia feugiat. Integer vehicula, justo vel tincidunt mollis, mauris nisl aliquam mi, ac viverra ex lectus vel ante. Curabitur maximus augue tortor, vitae venenatis felis posuere sed. Nullam gravida ante metus, in condimentum ipsum cursus non.
-    </p>
-
-    <h2>Notificacion 3:</h2>
-    <img
-      alt="giraffe sticking its tongue out"
-      src="https://ergo2play.com/cdn/shop/products/SG203-BK-A_434d56f0-8de1-40b9-9faf-87eda0537311_1024x1024.jpg?v=1610029433"
-    />
-    <p>
-      Ut purus odio, tincidunt sit amet scelerisque sed, fermentum a dolor. fermentum a dolor. Etiam ac rhoncus turpis, vitae blandit lorem. Integer eleifend lectus quis lacinia feugiat. Integer vehicula, justo vel tincidunt mollis, mauris nisl aliquam mi, ac viverra ex lectus vel ante. Curabitur maximus augue tortor, vitae venenatis felis posuere sed. Nullam gravida ante metus, in condimentum ipsum cursus non.
-    </p>
-
-    <h2>Notificacion 4:</h2><h3>Off90%</h3>
-    <img
-      alt="two grey elephants on grass plains during sunset"
-      src="https://melollevo.cl/cdn/shop/files/mesa-de-trabajo-3-80-2e33bd9a-c97e-4930-841c-57186582d7b6_56447bdd-7d19-4741-86a2-7281b02fbdb4_700x700.jpg?v=1711428341"
-    />
-    <p>
-       Etiam ac rhoncus turpis, vitae blandit lorem. Integer eleifend lectus quis lacinia feugiat. Integer vehicula, justo vel tincidunt mollis, mauris nisl aliquam mi, ac viverra ex lectus vel ante. Curabitur maximus augue tortor, vitae venenatis felis posuere sed. Nullam gravida ante metus, in condimentum ipsum cursus non.
-    </p>
-   
-  </div>
 </ion-content>
+
 
 <ion-footer>
 

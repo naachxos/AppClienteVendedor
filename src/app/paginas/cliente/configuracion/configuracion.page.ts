@@ -1,38 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-configuracion',
   templateUrl: './configuracion.page.html',
   styleUrls: ['./configuracion.page.scss'],
 })
-export class ConfiguracionPage implements OnInit {
-  nombre: string = 'Juan';
-  edad: number = 25;
-  correo: string = 'algo@gmail.com'
-  editando: boolean = false;
+export class ConfiguracionPage {
+  usuario: any = {};
 
-  constructor(public navCtrl: NavController) { }
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.obtenerRutUsuarioAutenticado();
   }
 
-  toggleEdicion() {
-    this.editando = !this.editando;
+  obtenerRutUsuarioAutenticado() {
+    const url = 'http://localhost/obtenerRutUsuarioAutenticado.php';
+
+    this.http.get(url).subscribe(
+      (response: any) => {
+        const rutUsuario = response.rut;
+        this.obtenerInformacionUsuario(rutUsuario);
+      },
+      (error) => {
+        console.error('Error al obtener el rut del usuario autenticado:', error);
+      }
+    );
   }
 
-  
+  obtenerInformacionUsuario(rutUsuario: string) {
+    const url = `http://localhost/obtenerCliente.php?rut=${rutUsuario}`;
 
-  guardarInfo() {
-    // Aquí puedes agregar la lógica para guardar la información en tu backend o donde sea necesario
-    console.log('Información guardada:', { nombre: this.nombre, edad: this.edad });
-    this.editando = false; // Finaliza la edición después de guardar
+    this.http.get(url).subscribe(
+      (data: any) => {
+        if (data) {
+          this.usuario = data;
+        } else {
+          console.error('No se encontraron datos del Cliente');
+        }
+      },
+      (error) => {
+        console.error('Error al obtener datos del Cliente:', error);
+      }
+    );
   }
 
-  accederConfiguracion() {
-    // Aquí puedes redirigir a la página de configuración
-    this.navCtrl.navigateForward('/galeria-post');}
-
-
+  toggleDarkMode(event: any) {
+    document.body.classList.toggle('dark-mode', event.detail.checked);
+  }
 }

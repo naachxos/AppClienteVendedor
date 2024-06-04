@@ -8,6 +8,7 @@ const routes: Routes = [
     redirectTo: 'carga',
     pathMatch: 'full'
   },
+ // { path: 'product-detail/:title', loadChildren: () => import('./product-detail/product-detail.module').then(m => m.ProductDetailPageModule) } //borrar producto
   {
     path: 'intro',
     loadChildren: () => import('./paginas/intro/intro.module').then( m => m.IntroPageModule)
@@ -21,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/vendedor/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'registroVendedor',
+    path: 'registro-vendedor',
     loadChildren: () => import('./paginas/vendedor/registro-vendedor/registro-vendedor.module').then( m => m.RegistroVendedorPageModule)
   },
 
@@ -35,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/cliente/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'registroCliente',
+    path: 'registro-cliente',
     loadChildren: () => import('./paginas/cliente/registro-cliente/registro-cliente.module').then( m => m.RegistroClientePageModule)
   },
   {
@@ -65,6 +66,14 @@ const routes: Routes = [
   {
     path: 'bodega-negocio',
     loadChildren: () => import('./paginas/vendedor/bodega-negocio/bodega-negocio.module').then( m => m.BodegaNegocioPageModule)
+  },
+  {
+    path: 'carrito-cliente',
+    loadChildren: () => import('./paginas/cliente/carrito-cliente/carrito-cliente.module').then( m => m.CarritoClientePageModule)
+  },
+  {
+    path: 'proceso-pago',
+    loadChildren: () => import('./paginas/cliente/carrito-cliente/proceso-pago/proceso-pago.module').then( m => m.ProcesoPagoPageModule)
   }
 ];
 

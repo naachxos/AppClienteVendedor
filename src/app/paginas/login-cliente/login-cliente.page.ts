@@ -21,7 +21,7 @@ export class LoginClientePage {
           const userData = JSON.parse(cleanResponse);
 
           if (userData && userData.length > 0) {
-            const usuario = userData.find((user: { rut_cliente: string; password: string; }) => user.rut_cliente === this.rut && user.password === this.password);
+            const usuario = userData.find((user: { rut: string; password: string; }) => user.rut === this.rut && user.password === this.password);
 
             if (usuario) {
               this.router.navigate(['/homeCliente']);
@@ -36,7 +36,7 @@ export class LoginClientePage {
           console.error('Error al analizar la respuesta del servidor:', error);
         }
       },
-      
+
       (error) => {
         console.error('Error al obtener los datos del usuario:', error);
       }
