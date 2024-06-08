@@ -11,7 +11,7 @@
 <!---------------------------------------------------------------------------------------------------------------->
 
 <!--///////////////////////////Pantalla superior-->
-<ion-content [fullscreen]="false">
+
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -20,34 +20,46 @@
       <ion-title size="large">TechTrade MarkConnect</ion-title>
     </ion-toolbar>
   </ion-header>
+
+
+<ion-content>
+
+  <swiper-container>
+    
+  <swiper-slide>slide 1</swiper-slide>
+  <swiper-slide>slide 2</swiper-slide>
+  <swiper-slide>slide 3</swiper-slide>
+  </swiper-container>
+
+
 </ion-content>
+
 
 <!--//////////////////////////////////////////////////////////////Division de pantallas///////////////////////////////////////////////////////////////////-->
 
 <!--///////////////////////////Pantalla Inferior-->
-<ion-content [scrollY]="true" style="border:2; border-color: gray;">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Noticias y Novedades:
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-content [scrollY]="true">
-    <ion-list>
-      <ion-item *ngFor="let noticia of noticias">
-        <ion-thumbnail slot="start">
-          <img [src]="noticia.imagen" alt="Imagen del la Noticia">
-        </ion-thumbnail>
-        <ion-label>
-          <h2>{{ noticia.titulo }}</h2>
-          <p>{{ noticia.contenido }}</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+<ion-content>
+
+<article class="card">
+  <div class="card-img">
+    <div class="card-imgs pv delete"></div>
+  </div>
+
+  <div class="project-info">
+    <div class="flex">
+      <div class="project-title">Title card</div>
+      <span class="tag">type</span>
+    </div>
+    <span class="lighter"
+      >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae
+      voluptas ullam aut incidunt minima.</span
+    >
+  </div>
+</article>
+
 </ion-content>
+
 <!-- Footer  -->
 <ion-footer>
   <ion-toolbar>
@@ -71,7 +83,4 @@
     </ion-title>
   </ion-toolbar>
 </ion-footer>
-
-
-
 
