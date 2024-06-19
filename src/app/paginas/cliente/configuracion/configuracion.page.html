@@ -13,18 +13,38 @@
       <ion-label>Modo oscuro</ion-label>
       <ion-toggle (ionChange)="toggleDarkMode($event)"></ion-toggle>
     </ion-item>
+    <!-- Botón para seleccionar imagen desde el ordenador -->
+    <ion-item>
+      <ion-label>Cargar imagen desde el ordenador</ion-label>
+      <input type="file" (change)="onFileChanged($event)">
+    </ion-item>
+    <!-- Botón para tomar una foto desde la cámara -->
+    <ion-item button (click)="tomarFoto()">
+      <ion-label>Tomar foto desde la cámara</ion-label>
+    </ion-item>
   </ion-list>
 
-  <div class="container" style="text-align: center;">
-    <ion-avatar style="align-items: center;">
-      <!-- Datos Cliente -->
-      <img src="#" alt="Avatar">
+  <div class="container">
+    <ion-avatar style="display: block; margin: 0 auto;">
+      <!-- Mostrar imagen de perfil del usuario -->
+      <img *ngIf="usuario.avatar" [src]="usuario.avatar" alt="Avatar" style="">
+      <!-- Si usuario.avatar no está definido, mostrar una imagen de avatar por defecto -->
+      <img *ngIf="!usuario.avatar" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQAlAMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABAUBAgMHCAb/xAA0EAACAgECAwYFAgUFAAAAAAAAAQIDBAURBhIhEyIxQVFhBxUyUnEU0UKBkZShFiMkNVT/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9xAAAGH0IOVnJNxpabXjICVdfXSt5y29vMgXahN9Klyr1ZElJylvJtv1ZgDadk7HvOcpfzNQAAAAAADpVfbV9M3+GTKdQT6XR290V4AvoTjNbxe69jYoqrZ1S3re3t5Fpi5cb1s+7P09fwBJAAAAADDe3iZK3UMlt9lW+n8TA0zMt2Nwg9oeb9SIAAAAAAAAAAAAAAAAm0909mgALPCy+07ljXP6+pNPz63TTXii3wsjtq9pfXHx9wJIAAj5l/Y0tr6n0RT779WSM63tb3t9MeiI4AAAAAAN66rLXtCLZKxMLn2nau76epZRioraK2SArIafY1vKSizb5c/vX9CyAFTZg3R+lKS9iNKLi9pLZl+c7qYWraa39wKMHbJxpUS9Y+TOIAAADeqyVVinHxXl6mgAvq5qcFKPVPqCpx8uVFfZrqk+gAjgAAAABKwMftJ88vpj/lkR+B5n8RONuLuFuIbsbT3GrTdodlZbjbxlJx3klLzA9sWxk+aV8X+Mun/LxP7Zdf8AJIwvilx1m5EMfEsqvtn4Rqwud7eb2XktwPo4Hi9/E/G1GVnQlr+lfpMXGdsM39L/ALN89t+yjLfbn9vYpcXj/wCJeVRXkY2FO6iyKlCdenOUZJ+jA+ggfNlnxc40qnOu3IxYzhJxlF4qTTXin18jVfGDjH/14f8Aar9wPpK2tWQcZLxKW6t1WOEvFHlOJxl8QMnRo5qysSOTZZFU4TwX211b23sit+sVv4nfA4s4ryuOK9KnmYmp4NUoLIycLG7ijJb+O722fQD0wAAAABkGAAAAAAAbVrmsin5tG/FXDWBxLpksTPorslFSdE5pvsptbKWxpW+WyL9Gi9XVAfJnGPCufwnqk8TNjOynflpynXyRu6Jtr8bjQOI69C07LWHjuvWLZr9PqMJrmph05o7NdU+v9T6l1PRdM1bs/meBjZfZb8nb1qXLv47bkL/R3DO3/Qab/bQ/YDx7hzRsn4g5GLXi4dml8L4so3OhpW1XZEZd/r0aclJnumn4OPp2FVh4VMaMemPLXXDwivRDA0/D03HWPgYtONSm5dnTBRju/F7IkgeP/FT4Zxyoy1bhzFSyN27cWmvrdKUt5TbbPFMHIow9RptysevJhVYnbjTeysSfWL/J9lNJrZorP9OaHzOXyfA3b3b/AE0P2A+fdM4r1LW8u7D0TTpfMrHy6XOq9Oen0pd6uG66xaXseycH8F4fCWiTrr5Lsyzd3ZXZqM7E5bpP8bn6XG0jTMW2NuLp+JTZHwnXTGLX80jpnvbGl79AKgAAAAAAAAAAAAALrEs7SiL810ZSknByOxnyy+iQFuDCe63MgAAAAAAr9Us+mtP3ZMusjVBykymtm7LHN+LYGgAAAAAAAHgDvm1dle/R9UcAAAAAACZi5jr7tm7j5exYwsjNbxaaKI2hOUHvGTX4YF8Cphn3R6PZ/k3eo2fbECzON+RXSu8+voisszLp/wAey9EcG2+re4HbIvlfPeW6XkjiAAAAAAAAdK6LLI80F032MAWmbR2tW6Xej1RUH6ArM/G5JOyC7r8V6MCEATcPD59rLPp8l6gRqqLLfojuvUlw05/xz2/BYRiorZLoZAg/Loec5f0Hy6v7pE4AQfl1f3SHy6v7pE4AQfl1f3SHy6v75E4AQHp0fKbONmBZH6GpItQBQyhKD2mmmal3fTC6O0l/MqciiVE+V9V5MDkZhGU5KMVu2zBZ6fjdmu0mu8/D2Ak0VKqpQj5GDqABiUVJNNbp+RkAVd+MqLVNx3q36+xYVThOClBrlN2k1s1uiHOiyiTnjvuvxgwJoOFGTCzo+7L0Z3AAAAAAAAAAGG0luwMkPUJV9nyy6z8thdl7vkoXNN+foMfE2l2l755v/AHLCxHurbV08kWKAAAAAAAAAA4X0V2dZLaS8GvEiYuRZ2jrct4r1AAsUZAAAAAAANLZOMG14lY7J5F3JZJ8vougAFlVVCqO0IpHQAAAAAAA/9k=" alt="Avatar por defecto" style="width: 150px; height: 150px; border-radius: 50%;">
     </ion-avatar>
-    <div class="container">
-      <h2>{{ usuario.nombre }}</h2>
-    </div>
-    <h6>Rut: {{ usuario.rut }}</h6>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <ion-card>
+      <ion-card-content>
+        <div class="card-content">
+          <h1>Nombre Usuario: {{ usuario.nombre }}</h1>
+          <br>
+          <h5>Rut: {{ usuario.rut }}</h5>
+        </div>
+      </ion-card-content>
+    </ion-card>
   </div>
+
 </ion-content>
-
-

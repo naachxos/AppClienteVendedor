@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>mensajes-recibidos-vendedor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Mensajes Recibidos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div>
+      <ul>
+        <li *ngFor="let mensaje of mensajes">
+          <p>{{ mensaje.mensaje }}</p>
+          <p><small>Tipo: {{ mensaje.tipo }}</small></p>
+        </li>
+      </ul>
+    </div>
+  </ion-content>

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { IntroPageRoutingModule } from './intro-routing.module';
 
 import { IntroPage } from './intro.page';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IntroPageRoutingModule
+    IntroPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [IntroPage]
 })

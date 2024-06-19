@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/homeVendedor"></ion-back-button>
+    </ion-buttons>
+    <ion-title>crear-producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">crear-producto</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="container">
+    <div class="container2">
+      <form class="form" (ngSubmit)="crearProducto()" #productForm="ngForm">
+        <ul class="wrapper">
+          <li style="--i:7;">
+            <input class="input" type="text" placeholder="Nombre del Producto" required [(ngModel)]="producto.title" name="title">
+          </li>
+          <li style="--i:6;">
+            <input class="input" type="number" placeholder="Precio" required [(ngModel)]="producto.precio" name="precio">
+          </li>
+          <li style="--i:5;">
+            <input class="input" type="text" placeholder="Descripción" required [(ngModel)]="producto.description" name="description">
+          </li>
+          <li style="--i:4;">
+            <input class="input" type="text" placeholder="URL de la Imagen" required [(ngModel)]="producto.imagen" name="imagen">
+          </li>
+          <li style="--i:3;">
+            <input class="input" type="number" placeholder="Stock del Producto" required [(ngModel)]="producto.stock" name="stock">
+          </li>
+          <li style="--i:2;">
+            <input class="input" type="text" placeholder="que es tu producto" required [(ngModel)]="producto.tipoProducto" name="tipoProducto">
+          </li>
+          <li style="--i:1;">
+            <button class="button" type="submit" [disabled]="isSubmitting">Crear Producto</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</ion-content>
+
+

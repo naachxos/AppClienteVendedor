@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Auth2Service } from '../../services/auth2.service'; // Ajusta la ruta según tu estructura
 
 @Component({
   selector: 'app-login-cliente',
@@ -8,37 +9,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-cliente.page.scss'],
 })
 export class LoginClientePage {
-  password!: string;
-  rut!: string;
+  password: string = '';
+  rut: string = '';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private auth2Service: Auth2Service // Ajusta el nombre del servicio aquí
+  ) {}
 
   login() {
-    this.http.get('http://localhost/dataCliente.php', { responseType: 'text' }).subscribe(
+    this.auth2Service.autenticarCliente(this.rut, this.password).subscribe(
       (response) => {
-        const cleanResponse = response.replace('Conectado!!... Entregando Datos =>', '');
-        try {
-          const userData = JSON.parse(cleanResponse);
-
-          if (userData && userData.length > 0) {
-            const usuario = userData.find((user: { rut: string; password: string; }) => user.rut === this.rut && user.password === this.password);
-
-            if (usuario) {
-              this.router.navigate(['/homeCliente']);
-            } else {
-              console.error('Credenciales incorrectas');
-            }
-
-          } else {
-            console.error('No se pudieron obtener los datos del usuario');
-          }
-        } catch (error) {
-          console.error('Error al analizar la respuesta del servidor:', error);
+        if (response.status === 'success') {
+          this.auth2Service.setRut(this.rut); // Guarda el rut del cliente en el Auth2Service
+          this.auth2Service.setCliente(response); // Guarda los datos del cliente
+          this.router.navigate(['/homeCliente']);
+        } else {
+          console.error('Credenciales incorrectas');
         }
       },
-
       (error) => {
-        console.error('Error al obtener los datos del usuario:', error);
+        console.error('Error al autenticar cliente:', error);
       }
     );
   }

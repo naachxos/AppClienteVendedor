@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
 export class GaleriaPostPage implements OnInit {
 
 
-  noticias: any = [];
+  productosLista: any = [];
 
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     // Llamada a la función para cargar las noticias al iniciar la página
-    this.noticia();
+    this.productoLista();
   }
 
   getRutCliente() {
@@ -34,10 +34,10 @@ export class GaleriaPostPage implements OnInit {
     }, 2000);
   }
 
-  noticia() {
+  productoLista() {
     // Realizar la solicitud HTTP para obtener los datos del usuario
     this.http.get('http://localhost/obtenerPosts.php').subscribe((Response) => {
-      this.noticias = Response;
+      this.productosLista = Response;
     });
   }
 }

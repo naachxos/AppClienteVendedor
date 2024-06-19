@@ -1,14 +1,12 @@
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-configuracion',
   templateUrl: './configuracion.page.html',
   styleUrls: ['./configuracion.page.scss'],
 })
-export class ConfiguracionPage implements OnInit {
-
+export class ConfiguracionPage {
   usuario: any = {};
 
   constructor(private http: HttpClient) {}
@@ -39,16 +37,15 @@ export class ConfiguracionPage implements OnInit {
         if (data) {
           this.usuario = data;
         } else {
-          console.error('No se encontraron datos del Vendedor');
+          console.error('No se encontraron datos del Cliente');
         }
       },
       (error) => {
-        console.error('Error al obtener datos del Vendedor:', error);
+        console.error('Error al obtener datos del Cliente:', error);
       }
     );
   }
 
-   //Modo Oscuro Ionic
   toggleDarkMode(event: any) {
     document.body.classList.toggle('dark-mode', event.detail.checked);
   }

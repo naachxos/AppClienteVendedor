@@ -2,9 +2,9 @@
 <?php
 
 $servername = "localhost";
-$username = "root"; 
-$password = ""; 
-$database = "ionic_app_db"; 
+$username = "root";
+$password = "";
+$database = "appportafolio";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM cliente"; 
+$sql = "SELECT * FROM cliente";
 $result = $conn->query($sql);
 
 $data = array();

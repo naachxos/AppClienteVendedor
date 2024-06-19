@@ -3,16 +3,11 @@
     <ion-buttons slot="end">
       <ion-back-button defaultHref="/login-cliente"></ion-back-button>
     </ion-buttons>
-    <ion-title>Registro Cliente</ion-title>
+    <ion-title>Registro Vendedor</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Registro Cliente</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <br>
   <div>
@@ -69,30 +64,26 @@
 
       <ion-item>
         <ion-label position="stacked">Nombre Empresa</ion-label>
-        <ion-input formControlName="nombreNegocio" placeholder="Ingresar Código Postal" value="Nombre de las Empresa"></ion-input>
+        <ion-input formControlName="nombreNegocio" placeholder="Nombre de la Empresa" value="Nombre de las Empresa"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Rut Empresa</ion-label>
-        <ion-input formControlName="rutNegocio" placeholder="Ingresar Código Postal" value="12345"></ion-input>
+        <ion-input formControlName="rutNegocio" placeholder="Rut de la Empresa" value="12345"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Telefono Empresa</ion-label>
-        <ion-input formControlName="telefonoNegocio" placeholder="Ingresar Código Postal" value="12345"></ion-input>
+        <ion-input formControlName="telefonoNegocio" placeholder="Telefono de la Empresa" value="12345"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">UrlEmpresa</ion-label>
-        <ion-input formControlName="urlNegocio" placeholder="Ingresar Código Postal" value="12345"></ion-input>
+        <ion-input formControlName="urlNegocio" placeholder="Url de la pagina de la Empresa" value="12345"></ion-input>
       </ion-item>
 
       <br>
-      <div class="checkbox-container">
-        <ion-checkbox formControlName="terminos" id="terminos" checked="true"></ion-checkbox>
-        <label for="terminos">Acepto los términos y condiciones</label>
-        <a routerLink="/politicas">Términos de la Plataforma</a>
-      </div>
+
     </ion-list>
 
     <br>

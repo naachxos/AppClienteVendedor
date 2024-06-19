@@ -14,20 +14,28 @@
     </ion-toolbar>
   </ion-header>
 
-    <ion-content [scrollY]="true">
-      <ion-list>
-        <ion-item *ngFor="let noticia of noticias" >
+  <ion-content [scrollY]="true" style="border:2; border-color: gray;">
+
+    <ion-card class="card">
+      <p class="title">Noticias y Novedades</p>
+      <div class="user__container">
+        <div *ngFor="let producto of productosLista" class="user">
           <ion-thumbnail slot="start" >
-            <a href="#">
-            <img [src]="noticia.imagen" alt="Imagen del la Noticia" >
-          </a>
+            <img class="image" [src]="producto.imagen" alt="Imagen de los Productos">
           </ion-thumbnail>
-          <ion-label>
-            <h2>{{ noticia.titulo }}</h2>
-            <p>{{ noticia.contenido }}</p>
+          <ion-label class="user__content">
+            <div class="text">
+              <span class="name">{{ producto.title }}</span>
+              <p class="username">Descripcion Producto:{{ producto.description }}</p>
+              <p class="username">Stock: {{ producto.stock }}</p>
+
+            </div>
+            <button ion-button clear class="follow">${{ producto.precio }}</button>
           </ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-content>
+        </div>
+      </div>
+    </ion-card>
+
+  </ion-content>
 
   </ion-content>

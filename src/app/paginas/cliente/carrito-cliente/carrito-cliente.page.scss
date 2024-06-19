@@ -33,3 +33,89 @@ ion-button {
     display: none !important; /* Chrome, Safari, Opera */
   }
 }
+
+
+ion-item{
+  background-color: #fff;
+}
+
+.card{
+  width: auto;
+  background: #FFFFFF;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.title, .more {
+  color: #0f1113;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E8EAEA;
+  border-radius: 2%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.user__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  padding-left: 15px;
+}
+
+.user__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 1.3em;
+}
+
+.name {
+  font-weight: 800;
+  color: #0f1113;
+}
+
+.username {
+  font-size: .9em;
+  color: #64696e;
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+  border-radius: 40%;
+  object-fit: cover;
+  background-color: #ffffff;
+}
+
+.follow {
+  border: none;
+  border-radius: 25px;
+  background-color: #0f1113;
+  color: white;
+  padding: 8px 15px;
+  font-weight: 700;
+  width: 100px;
+  text-align: center;
+}
+
+.more {
+  display: block;
+  text-decoration: none;
+  font-weight: 800;
+  color: #ffffff;
+}

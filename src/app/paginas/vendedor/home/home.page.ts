@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +9,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  productosLista: any = [];
 
-  noticias: any = [];
-
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService // Inyecta el servicio de autenticación del vendedor
+  ) { }
 
   ngOnInit() {
     // Llamada a la función para cargar las noticias al iniciar la página
-    this.noticia();
+    this.productoLista();
   }
 
-  getRutCliente() {
-    return this.http.get<{ nombre_cliente: string }>('http://localhost/dataCliente.php');
+  getRutVendedor() {
+    return this.http.get<{ nombre_vendedor: string }>('http://localhost/dataVendedor.php');
   }
 
   async canDismiss(data?: any, role?: string) {
@@ -33,10 +37,15 @@ export class HomePage implements OnInit {
     }, 2000);
   }
 
-  noticia() {
+  productoLista() {
     // Realizar la solicitud HTTP para obtener los datos del usuario
     this.http.get('http://localhost/obtenerPosts.php').subscribe((Response) => {
-      this.noticias = Response;
+      this.productosLista = Response;
     });
+  }
+
+  logout() {
+    this.authService.clearRut(); // Llama al método para limpiar las credenciales
+    this.router.navigate(['/login-vendedor']); // Redirige a la página de login
   }
 }

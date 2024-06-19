@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let mensaje of mensajes">
+      <ion-label>{{ mensaje.mensaje }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-input [(ngModel)]="nuevoMensaje" placeholder="Escribe un mensaje"></ion-input>
+    <ion-button (click)="enviarMensaje()">Enviar</ion-button>
+  </ion-item>
+</ion-content>

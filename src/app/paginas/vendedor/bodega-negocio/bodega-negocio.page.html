@@ -7,48 +7,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content>
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">bodega-negocio</ion-title>
+      <ion-title>Mis Productos</ion-title>
     </ion-toolbar>
   </ion-header>
 
-
-  <h1>Bodega</h1>
-
-  <div class="product-list">
-    <!-- Producto 1 -->
-    <div class="product-card">
-      <h2>Producto A</h2>
-      <p>Descripción del producto A.</p>
-      <p>Precio: $20</p>
-      <p>Stock: 10</p>
-      <div class="crud-buttons">
-        <button class="crud-btn">Editar</button>
-        <button class="crud-btn">Eliminar</button>
-        <button class="profile-btn">Ver Producto</button>
-      </div>
-    </div>
-  
-    <!-- Producto 2 -->
-    <div class="product-card">
-      <h2>Producto B</h2>
-      <p>Descripción del producto B.</p>
-      <p>Precio: $30</p>
-      <p>Stock: 15</p>
-      <div class="crud-buttons">
-        <button class="crud-btn">Editar</button>
-        <button class="crud-btn">Eliminar</button>
-        <button class="profile-btn">Ver Producto</button>
-      </div>
-    </div>
-  
-    <!-- Agrega más productos según sea necesario -->
-  
-    <!-- Botón para agregar nuevo producto -->
-    <button class="add-product-btn">Agregar Producto</button>
+  <div class="container">
+    <ion-list class="product-list">
+      <ion-item *ngFor="let producto of productos" class="product-card">
+        <div class="card">
+          <h1>{{ producto.title }}</h1>
+          <p class="heading">{{ producto.description }}</p>
+          <p><strong>Precio:</strong> {{ producto.precio }}</p>
+          <p><strong>Fecha de publicación:</strong> {{ producto.created_at }}</p>
+        </div>
+      </ion-item>
+    </ion-list>
   </div>
-  
-
 </ion-content>

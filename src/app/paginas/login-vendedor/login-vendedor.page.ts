@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-vendedor',
@@ -8,36 +9,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-vendedor.page.scss'],
 })
 export class LoginVendedorPage {
-  password!: string;
-  rut!: string;
+  password: string = '';
+  rut: string = '';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService // Ajusta el nombre del servicio aquí
+  ) {}
 
   login() {
-    this.http.get('http://localhost/dataVendedor.php', { responseType: 'text' }).subscribe(
+    console.log('Intentando login con rut:', this.rut, 'y password:', this.password);
+    this.authService.autenticarVendedor(this.rut, this.password).subscribe(
       (response) => {
-        const cleanResponse = response.replace('Conectado!!... Entregando Datos =>', ''); 
-        try {
-          const userData = JSON.parse(cleanResponse);
-
-          if (userData && userData.length > 0) {
-            const usuario = userData.find((user: { rut_vendedor: string; password: string; }) => user.rut_vendedor === this.rut && user.password === this.password);
-
-            if (usuario) {
-              this.router.navigate(['/homeVendedor']);
-            } else {
-              console.error('Credenciales incorrectas');
-            }
-
-          } else {
-            console.error('No se pudieron obtener los datos del usuario');
-          }
-        } catch (error) {
-          console.error('Error al analizar la respuesta del servidor:', error);
+        console.log('Respuesta del servidor:', response);
+        if (response.status === 'success') {
+          this.authService.setRut(this.rut); // Guarda el rut del cliente en el AuthService
+          this.authService.setVendedor(response); // Guarda los datos del cliente
+          this.router.navigate(['/homeVendedor']);
+        } else {
+          console.error('Credenciales incorrectas');
         }
       },
       (error) => {
-        console.error('Error al obtener los datos del usuario:', error);
+        console.error('Error al autenticar cliente:', error);
       }
     );
   }

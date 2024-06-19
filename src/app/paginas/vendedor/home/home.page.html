@@ -2,7 +2,7 @@
 
   <ion-toolbar style="border-radius: 5%;">
     <ion-title>
-      T͓̽e͓̽c͓̽h͓̽Ͳɾąժҽ ͓̽M͓̽a͓̽r͓̽k͓̽↻օղղҽc͓̽է
+      TTradingApp
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,43 +17,59 @@
   </ion-refresher>
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">TechTrade MarkConnect</ion-title>
+      <ion-title size="large">TTradingApp</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d238878.5740047553!2d-70.72964769711817!3d-33.54662807633855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1selectronica%20y%20tecnologia!5e0!3m2!1ses-419!2scl!4v1711646117376!5m2!1ses-419!2scl" width="600" height="240" style="border:2; border-color: gray;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class="container con1">
+    <div data-text="producto Top 1°" style="--r:-15;" class="glass">
+      <img viewBox="0 0 576 512"  xmlns="http://www.w3.org/2000/svg"
+      alt="rhino standing near grass"
+      src="https://images.unsplash.com/flagged/photo-1556983257-71fddc36bc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+    />
+    </div>
+    <div data-text="producto Top 2°" style="--r:5;" class="glass">
+      <img viewBox="0 0 576 512"  xmlns="http://www.w3.org/2000/svg"
+      alt="rhino standing near grass"
+      src="https://images.unsplash.com/flagged/photo-1556983257-71fddc36bc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+    />
+    </div>
+    <div data-text="producto Top 3°" style="--r:25;" class="glass">
+        <img viewBox="0 0 576 512"  xmlns="http://www.w3.org/2000/svg"
+        alt="rhino standing near grass"
+        src="https://images.unsplash.com/flagged/photo-1556983257-71fddc36bc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+      />
+    </div>
   </div>
+
 </ion-content>
 
 <!--//////////////////////////////////////////////////////////////Division de pantallas///////////////////////////////////////////////////////////////////-->
 
 <!--///////////////////////////Pantalla Inferior-->
 <ion-content [scrollY]="true" style="border:2; border-color: gray;">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Noticias y Novedades:
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-content [scrollY]="true">
-    <ion-list>
-      <ion-item *ngFor="let noticia of noticias">
-        <ion-thumbnail slot="start">
-          <img [src]="noticia.imagen" alt="Imagen del la Noticia">
+  <ion-card class="card">
+    <p class="title">Noticias y Novedades</p>
+    <div class="user__container">
+      <div *ngFor="let producto of productosLista" class="user">
+        <ion-thumbnail slot="start" >
+          <img class="image" [src]="producto.imagen" alt="Imagen de los Productos">
         </ion-thumbnail>
-        <ion-label>
-          <h2>{{ noticia.titulo }}</h2>
-          <p>{{ noticia.contenido }}</p>
+        <ion-label class="user__content">
+          <div class="text">
+            <span class="name">{{ producto.title }}</span>
+            <p class="username">Descripcion Producto:{{ producto.description }}</p>
+            <p class="username">Stock: {{ producto.stock }}</p>
+
+          </div>
+          <button ion-button clear class="follow">${{ producto.precio }}</button>
         </ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+      </div>
+    </div>
+  </ion-card>
 
 </ion-content>
-
 
 <ion-footer>
 
@@ -62,11 +78,20 @@
       <ion-button routerLink="/galeria-post">
         <ion-icon slot="icon-only" name="clipboard-outline"></ion-icon>
       </ion-button>
-      <ion-button routerLink="/configuracion">
+      <ion-button routerLink="/mensajes-recibidos-vendedor">
+        <ion-icon slot="icon-only"  name="cart-outline"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/buscar-clientes">
+        <ion-icon slot="icon-only"  name="cart-outline"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/configuracion2">
         <ion-icon slot="icon-only" name="construct-outline"></ion-icon>
       </ion-button>
       <ion-button routerLink="/bodega-negocio">
         <ion-icon slot="icon-only" name="business-outline"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/crear-producto">
+       <ion-icon slot="icon-only" name="layers-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="primary">
@@ -74,7 +99,5 @@
         <ion-icon slot="icon-only" name="exit-outline"></ion-icon>
       </ion-back-button>
     </ion-buttons>
-    <ion-title>Vendedor
-    </ion-title>
   </ion-toolbar>
 </ion-footer>

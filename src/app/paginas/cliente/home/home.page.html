@@ -2,8 +2,16 @@
 
   <ion-toolbar style="border-radius: 5%;">
     <ion-title>
-      T͓̽e͓̽c͓̽h͓̽Ͳɾąժҽ ͓̽M͓̽a͓̽r͓̽k͓̽↻օղղҽc͓̽է
+      TTApp
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/configuracion" slot="end">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/carrito-cliente" slot="end">
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <!--------------------------------------------------------------Barra de Despliegue---------------------------------->
@@ -20,58 +28,77 @@
       <ion-title size="large">TechTrade MarkConnect</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="container con1">
+    <div data-text="producto Top 1°" style="--r:-15;" class="glass" >
+      <img viewBox="0 0 576 512"  xmlns="http://www.w3.org/2000/svg"
+      alt="rhino standing near grass"
+      src="https://images.unsplash.com/flagged/photo-1556983257-71fddc36bc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+    />
+    </div>
+    <div data-text="producto Top 2°" style="--r:5;" class="glass">
+      <img viewBox="0 0 576 512"  xmlns="http://www.w3.org/2000/svg"
+      alt="rhino standing near grass"
+      src="https://images.unsplash.com/flagged/photo-1556983257-71fddc36bc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+    />
+    </div>
+    <div data-text="producto Top 3°" style="--r:25;" class="glass">
+        <img viewBox="0 0 576 512"  xmlns="http://www.w3.org/2000/svg"
+        alt="rhino standing near grass"
+        src="https://images.unsplash.com/flagged/photo-1556983257-71fddc36bc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+      />
+    </div>
+  </div>
+
 </ion-content>
 
 <!--//////////////////////////////////////////////////////////////Division de pantallas///////////////////////////////////////////////////////////////////-->
 
 <!--///////////////////////////Pantalla Inferior-->
 <ion-content [scrollY]="true" style="border:2; border-color: gray;">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Noticias y Novedades:
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-content [scrollY]="true">
-    <ion-list>
-      <ion-item *ngFor="let noticia of noticias">
-        <ion-thumbnail slot="start">
-          <img [src]="noticia.imagen" alt="Imagen del la Noticia">
+  <ion-card class="card">
+    <p class="title">Noticias y Novedades</p>
+    <div class="user__container">
+      <div *ngFor="let producto of productosLista" class="user">
+        <ion-thumbnail slot="start" >
+          <img class="image" [src]="producto.imagen" alt="Imagen de los Productos">
         </ion-thumbnail>
-        <ion-label>
-          <h2>{{ noticia.titulo }}</h2>
-          <p>{{ noticia.contenido }}</p>
+        <ion-label class="user__content">
+          <div class="text">
+            <span class="name">{{ producto.title }}</span>
+            <p class="username">Descripcion Producto:{{ producto.description }}</p>
+            <p class="username">Stock: {{ producto.stock }}</p>
+
+          </div>
+          <button ion-button clear class="follow">${{ producto.precio }}</button>
         </ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+      </div>
+    </div>
+  </ion-card>
+
 </ion-content>
+
 
 <ion-footer>
   <ion-toolbar>
-    <ion-buttons slot="secondary">
+    <ion-buttons slot="start">
       <ion-button routerLink="/galeria-post">
-        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        <ion-icon slot="icon-only" name="bag-outline"></ion-icon>
       </ion-button>
-      <ion-button routerLink="/configuracion">
-        <ion-icon slot="icon-only" name="construct-outline"></ion-icon>
+      <ion-button routerLink="/mensajes-recibidos-cliente" slot="start">
+        <ion-icon slot="icon-only" name="mail-unread-outline"></ion-icon>
       </ion-button>
-      <ion-button routerLink="/carrito-cliente">
-        <ion-icon slot="icon-only"  name="cart-outline"></ion-icon>
+      <ion-button routerLink="/buscar-vendedores" slot="start">
+        <ion-icon slot="icon-only" name="mail-outline"></ion-icon>
       </ion-button>
+      
     </ion-buttons>
     <ion-buttons slot="primary">
-      <ion-back-button defaultHref="/login-cliente">
+      <ion-button (click)="logout()"> <!-- Llama a la función de logout al hacer clic -->
         <ion-icon slot="icon-only" name="exit-outline"></ion-icon>
-      </ion-back-button>
+      </ion-button>
     </ion-buttons>
-    <ion-title>Cliente
-    </ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-footer>
-
-
-
-

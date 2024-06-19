@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./intro.page.scss'],
 })
 export class IntroPage implements OnInit {
+  productos: any[] = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.cargarProductos();
   }
 
+  cargarProductos() {
+    this.http.get<any[]>('http://localhost/obtenerPosts2.php').subscribe(
+      (response) => {
+        this.productos = response;
+      },
+      (error) => {
+        console.error('Error al obtener productos:', error);
+      }
+    );
+  }
 }
